@@ -18,10 +18,8 @@ char ** parse_args( char * line ) {
 }
 
 int main(int argc, char **argv) {
-  char line[100] = "1 2 string other";
-  char **args = parse_args(line);
-  int i;
-  for (i = 0; i < 4; i++) {
-    printf("%s\n", args[i]);
-  }
+    if (argc > 1) {
+        char **args = parse_args(argv[1]);
+        execvp(args[0], args);
+    }
 }
